@@ -1,0 +1,31 @@
+.cell {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+}
+
+.score {
+    font-size: 5em;
+}
+
+.food-emoji {
+    display: inline-block;
+    width: 90px;
+    height: 90px;
+}
+
+.header-emoji {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+}
+
+.snake-skin {
+    cursor: pointer;
+}
+
+.snake-skin-emoji {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+}

@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header">
+                <h1>
+                    Slithering Emojis
+                    <img class="header-emoji" src="../assets/twemoji/tongue_stuck_out.svg">
+                    <div class="pull-right">
+                        <button class="btn btn-success btn" (click)="start()" [disabled]="startToggle">Start</button>
+                    <button class="btn btn-danger btn" (click)="reset()" [disabled]="!startToggle">Reset</button>
+                    </div>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-9">
+            <div class="row" *ngFor="let cellRow of maze.cells">
+                <div class="col-xs-12">
+                    <div class="cell" *ngFor="let cell of cellRow">
+                        <img src="../assets/twemoji/{{cell.value}}.svg" alt="{{cell.value}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3 text-center">
+            <h5>Choose snake speed:</h5>
+            <div class="radio" *ngFor="let option of settings.moveIntervalOptions">
+                <label>
+                    <input type="radio" [(ngModel)]="settings.moveInterval" name="moveInterval" [checked]="settings.moveInterval === option.speed" [value]="option.speed">
+                    {{option.name}}
+                </label>
+            </div>
+            <h5>Choose your skin:</h5>
+            <div class="panel">
+                <span class="snake-skin" (click)="settings.snakeEmoji = emoji" *ngFor="let emoji of settings.snakeSkins">
+                    <img class="snake-skin-emoji" src="../assets/twemoji/{{emoji}}.svg" alt="{{emoji}}">
+                </span>
+            </div>
+            <hr>
+            <h3>You ate</h3>
+            <h1 class="score">
+                {{snake.cellsQueue.length - 3}}
+                <img class="food-emoji" src="../assets/twemoji/{{settings.foodEmoji}}.svg" alt="{{settings.foodEmoji}}">
+            </h1>
+        </div>
+    </div>
+</div>
